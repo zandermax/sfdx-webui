@@ -1,0 +1,11 @@
+# Ignore Node directories
+node_modules/
+
+# Ignore the locally-created Salesforce DX directory
+.sfdx/
+
+# Ignore local files and directories used to convert Salesforce DX to Metadata API
+mdapioutputdir/
+
+# Ignore Visual Studio Code-generated directories
+.vscode/
