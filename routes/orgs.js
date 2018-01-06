@@ -11,7 +11,6 @@ router.get('/', function (req, res, next) {
   shell.config.silent = true
 
   sfdx.list({ json: true, quiet: true }).then(result => {
-    console.log('result', result)
     shell.config.silent = silentState // restore old silent state
     const parsed = JSON.parse(result)
     const scratchOrgs = parsed.result.scratchOrgs
