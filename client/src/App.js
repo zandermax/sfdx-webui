@@ -12,7 +12,11 @@ import TableSortLabel from 'material-ui/Table/TableSortLabel'
 
 import Button from 'material-ui/Button'
 import Delete from 'material-ui-icons/Delete'
-
+import AppBar from 'material-ui/AppBar/AppBar'
+import Toolbar from 'material-ui/Toolbar/Toolbar'
+import Checkbox from 'material-ui/Checkbox/Checkbox'
+import Modal from 'material-ui/Modal/Modal'
+import Typography from 'material-ui/Typography'
 
 class App extends Component {
   state = { orgs: [{ orgId: 'Fetching data...' }] }
@@ -24,11 +28,17 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-        <h1>Scratch Orgs</h1>
+        <AppBar position='static' color='default'>
+          <Toolbar>
+            Scratch Orgs
+          </Toolbar>
+        </AppBar>
         <Table>
 
           <TableHead>
             <TableRow>
+              <TableCell />
+              <TableCell><TableSortLabel>Alias</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org ID</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org Name</TableSortLabel></TableCell>
             </TableRow>
@@ -37,8 +47,10 @@ class App extends Component {
           <TableBody>
             {this.state.orgs.map(org => (
               <TableRow key={org.orgId}>
+                <Checkbox />
+                <TableCell>{org.alias}</TableCell>
                 <TableCell key={org.orgId}>{org.orgId}</TableCell>
-                <TableCell> {org.username}</TableCell>
+                <TableCell>{org.username}</TableCell>
                 <TableCell>
                   <Button raised color='accent'>
                     Delete
@@ -55,7 +67,6 @@ class App extends Component {
   }
 }
 
-
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
@@ -67,7 +78,5 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   }
 })
-
-
 
 export default App
