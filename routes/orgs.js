@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   const silentState = shell.config.silent
   shell.config.silent = true
 
-  sfdx.list({ json: true, quiet: true }).then(result => {
+  sfdx.list({ json: true }).then(result => {
     shell.config.silent = silentState // restore old silent state
     const parsed = JSON.parse(result)
     const scratchOrgs = parsed.result.scratchOrgs
