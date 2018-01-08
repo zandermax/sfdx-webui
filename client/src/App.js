@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
-import Button from 'material-ui/Button'
-import Table from 'material-ui/Table'
 
-import './App.css'
+// import PropTypes from 'prop-types';
+
+// import Button from 'material-ui/Button'
+import Table from 'material-ui/Table'
 import TableBody from 'material-ui/Table/TableBody'
 import TableRow from 'material-ui/Table/TableRow'
 import TableCell from 'material-ui/Table/TableCell'
 import TableHead from 'material-ui/Table/TableHead'
 import TableSortLabel from 'material-ui/Table/TableSortLabel'
+
+import Button from 'material-ui/Button'
+import Delete from 'material-ui-icons/Delete'
+
 
 class App extends Component {
   state = { orgs: [{ orgId: 'Fetching data...' }] }
@@ -34,7 +39,12 @@ class App extends Component {
               <TableRow key={org.orgId}>
                 <TableCell key={org.orgId}>{org.orgId}</TableCell>
                 <TableCell> {org.username}</TableCell>
-                <TableCell><Button>Delete</Button></TableCell>
+                <TableCell>
+                  <Button raised color='accent'>
+                    Delete
+                    <Delete />
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -44,5 +54,20 @@ class App extends Component {
     )
   }
 }
+
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
+  }
+})
+
+
 
 export default App
