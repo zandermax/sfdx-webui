@@ -41,6 +41,7 @@ class App extends Component {
               <TableCell><TableSortLabel>Alias</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org ID</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org Name</TableSortLabel></TableCell>
+              <TableCell><TableSortLabel>Expiration Date</TableSortLabel></TableCell>
             </TableRow>
           </TableHead>
 
@@ -51,6 +52,7 @@ class App extends Component {
                 <TableCell>{org.alias}</TableCell>
                 <TableCell key={org.orgId}>{org.orgId}</TableCell>
                 <TableCell>{org.username}</TableCell>
+                <TableCell>{org.expirationDate}</TableCell>
                 <TableCell>
                   <Button raised color='accent'>
                     Delete
