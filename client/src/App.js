@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-// import PropTypes from 'prop-types';
-
-// import Button from 'material-ui/Button'
 import Table from 'material-ui/Table'
 import TableBody from 'material-ui/Table/TableBody'
 import TableRow from 'material-ui/Table/TableRow'
@@ -14,9 +11,6 @@ import Button from 'material-ui/Button'
 import Delete from 'material-ui-icons/Delete'
 import AppBar from 'material-ui/AppBar/AppBar'
 import Toolbar from 'material-ui/Toolbar/Toolbar'
-import Checkbox from 'material-ui/Checkbox/Checkbox'
-import Modal from 'material-ui/Modal/Modal'
-import Typography from 'material-ui/Typography'
 
 class App extends Component {
   state = { orgs: [{ orgId: 'Fetching data...' }] }
@@ -37,22 +31,23 @@ class App extends Component {
 
           <TableHead>
             <TableRow>
-              <TableCell />
               <TableCell><TableSortLabel>Alias</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org ID</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Org Name</TableSortLabel></TableCell>
               <TableCell><TableSortLabel>Expiration Date</TableSortLabel></TableCell>
+              <TableCell><TableSortLabel>Up To Date</TableSortLabel></TableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
             {this.state.orgs.map(org => (
               <TableRow key={org.orgId}>
-                <Checkbox />
+
                 <TableCell>{org.alias}</TableCell>
                 <TableCell key={org.orgId}>{org.orgId}</TableCell>
                 <TableCell>{org.username}</TableCell>
                 <TableCell>{org.expirationDate}</TableCell>
+                <TableCell>{org.isUpToDate}</TableCell>
                 <TableCell>
                   <Button raised color='accent'>
                     Delete
